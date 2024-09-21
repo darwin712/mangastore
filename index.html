@@ -200,4 +200,56 @@
                         </tr>
                     </table>
                 </div>
+                
+                <div id="form3" style="display: none;"></div>
+                    <h1 style="font-size: 24px;"> ➤ Método de Pago: </h1>
+                    <table>
+                        <tr>
+                            <td><h2>Titular:</h2></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="titular" oninput="validateForm()"></td>
+                        </tr>
+                    </table>
+                    <br>
 
+                    <table>
+                        <tr>
+                            <td><h2>Número de Tarjeta:</h2></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="tarjeta" pattern="\d*" maxlength="16" oninput="charLimit(this); validateForm()" onkeypress="return onlyNumbers(event)"></td>
+                        </tr>
+                    </table>
+                    <br>
+
+                    <table>
+                        <tr>
+                            <td><h2>CVC:</h2></td>
+                            <td><h2>Fecha Expiración:</h2></td>
+                        </tr>
+                        <tr>
+                            <td><input type="number" name="CVC" id="smallform" maxlength="3" oninput="charLimit(this); validateForm()"></td>
+                            <td><input type="date" name="fecha" id="smallform" oninput="validateForm()"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <center>
+                    <input type="submit" value="Confirmar" id="confirmar" disabled>
+                </center>
+            </form>
+        </div>
+
+        <center>
+            <table>
+                <tr>
+                    <td><button id="previouspage" onclick="previouspage()" disabled><img src="LeftArrow.png" width="20" height="20"></button></td>
+                    <td><p id="pageIndicator">1/3</p></td>
+                    <td><button id="nextpage" onclick="nextpage()"><img src="RightArrow.png" width="20" height="20"></button></td>
+                </tr>
+            </table>
+        </center>
+    </div>
+</body>
+</html>
