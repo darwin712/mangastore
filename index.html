@@ -57,17 +57,23 @@
         }
 
         function validateForm() {
-            var textFields = document.querySelectorAll('#registerForm input[type="text"], #registerForm input[type="password"], #registerForm input[type="number"], #registerForm input[type="month"]');
-            var isValid = true;
+        // Obtén todos los campos que estén visibles en la página actual
+        var currentPageFields = document.querySelectorAll(`#form${numPage} input`);
 
-            textFields.forEach(function (textField) {
-                if (textField.value.trim() === '') {
-                    isValid = false;
-                }
-            });
+        var isValid = true;
 
-            document.getElementById('confirmar').disabled = !isValid;
+        currentPageFields.forEach(function (input) {
+        // Validar solo campos de texto, número, contraseña, mes y fecha
+        if (input.type === 'text' || input.type === 'password' || input.type === 'number' || input.type === 'month' || input.type === 'date') {
+            if (input.value.trim() === '') {
+                isValid = false;
+            }
         }
+    });
+
+    // Habilitar o deshabilitar el botón "Confirmar" dependiendo de la validez
+    document.getElementById('confirmar').disabled = !isValid;
+}
 
         // Función para guardar los datos en localStorage
         function saveFormData() {
@@ -200,7 +206,7 @@
                         </tr>
                     </table>
                 </div>
-                
+
                 <div id="form3" style="display: none;"></div>
                     <h1 style="font-size: 24px;"> ➤ Método de Pago: </h1>
                     <table>
